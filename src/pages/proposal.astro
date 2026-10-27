@@ -1,0 +1,293 @@
+---
+const featuredResearch = [
+  {
+    number: "01",
+    title: "極中間圏雲の長期変動",
+    label: "Long-term variations",
+    text: "ひまわり8号・9号の観測データから、2015年以降の極中間圏雲（PMC）の変動を解析しています。",
+  },
+  {
+    number: "02",
+    title: "2022年トンガ噴火への応答",
+    label: "Tonga eruption",
+    text: "フンガ・トンガ＝フンガ・ハアパイ噴火に伴う水蒸気異常が、PMCに与えた影響を調べています。",
+  },
+  {
+    number: "03",
+    title: "衛星観測手法の比較",
+    label: "Satellite observations",
+    text: "Himawari/AHIやAura/MLSなど、複数の衛星観測を組み合わせて大気変動を捉えています。",
+  },
+];
+
+const news = [
+  { date: "2026.07", text: "JpGU Outstanding Student Presentation Awardを受賞" },
+  { date: "2026.04", text: "日本学術振興会 特別研究員（DC1）に採用" },
+  { date: "2026.03", text: "EPS Highlighted Papers 2025に選出" },
+];
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="森山陽介の研究者ホームページ提案。極中間圏雲と地球大気の衛星観測研究を紹介します。"
+    />
+    <title>Yosuke MORIYAMA | Researcher homepage proposal</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;500;600;700;900&display=swap"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">YM<span>.</span></a>
+      <nav aria-label="ページ内ナビゲーション">
+        <a href="#research">Research</a>
+        <a href="#news">News</a>
+        <a href="#selected-publications">Publications</a>
+        <a href="#profile">Profile</a>
+      </nav>
+      <a class="language-link" href="/">既存ページへ ↗</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">RESEARCHER / ATMOSPHERIC SCIENCE</p>
+          <h1 id="hero-title">空から見つめる、<br /><em>地球大気の変化。</em></h1>
+          <p class="hero-lead">
+            ひまわり8号・9号をはじめとする衛星観測データを用いて、
+            極中間圏雲と地球中層・超高層大気の変動を研究しています。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#research">研究を見る <span>↓</span></a>
+            <a class="button button-quiet" href="#profile">プロフィール →</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="研究対象を示す装飾図">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="planet">
+            <span class="planet-label">EARTH<br />ATMOSPHERE</span>
+          </div>
+          <div class="satellite">HIMAWARI<br /><small>AHI</small></div>
+          <p class="visual-caption">SATELLITE OBSERVATION<br />OF THE MIDDLE ATMOSPHERE</p>
+        </div>
+      </section>
+
+      <section class="research-section section-shell" id="research" aria-labelledby="research-title">
+        <div class="section-heading">
+          <p class="eyebrow">01 / RESEARCH</p>
+          <h2 id="research-title">研究テーマ</h2>
+          <p>観測データをつなぎ、見えない大気の変化を明らかにする。</p>
+        </div>
+        <div class="research-grid">
+          {featuredResearch.map((item) => (
+            <article class="research-card">
+              <span class="card-number">{item.number}</span>
+              <p class="card-label">{item.label}</p>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <a href="#selected-publications">関連する業績 <span>↗</span></a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="news-section section-shell" id="news" aria-labelledby="news-title">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">02 / UPDATES</p>
+          <h2 id="news-title">News</h2>
+        </div>
+        <div class="news-list">
+          {news.map((item) => (
+            <article class="news-item">
+              <time datetime={item.date.replace(".", "-")}>{item.date}</time>
+              <p>{item.text}</p>
+              <span aria-hidden="true">↗</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="publication-section section-shell" id="selected-publications" aria-labelledby="publication-title">
+        <div class="section-heading">
+          <p class="eyebrow">03 / SELECTED WORK</p>
+          <h2 id="publication-title">代表的な研究成果</h2>
+        </div>
+        <div class="publication-content">
+          <article class="publication-feature">
+            <p class="publication-year">2025 · EARTH, PLANETS AND SPACE</p>
+            <h3>
+              Responses of Polar Mesospheric Clouds to Water Vapor Anomalies
+              Caused by the 2022 Hunga Tonga–Hunga Ha’apai Eruption
+            </h3>
+            <p>
+              2022年の噴火による水蒸気異常と極中間圏雲の応答を、衛星観測から解析した研究です。
+            </p>
+            <a class="text-link" href="https://doi.org/10.1186/s40623-025-02298-3">
+              DOIを読む <span>↗</span>
+            </a>
+          </article>
+          <ol class="publication-list">
+            <li>
+              <span>2025</span>
+              <p>Comparison of Polar Mesospheric Cloud Observations by Himawari-8/AHI and Himawari-9/AHI</p>
+            </li>
+            <li>
+              <span>2024</span>
+              <p>Polar mesospheric cloud variations from 2015 to 2024 observed by Himawari-8/9</p>
+            </li>
+          </ol>
+        </div>
+        <a class="all-link" href="/">論文・発表の全リストを見る →</a>
+      </section>
+
+      <section class="profile-section section-shell" id="profile" aria-labelledby="profile-title">
+        <div class="profile-intro">
+          <p class="eyebrow">04 / PROFILE</p>
+          <h2 id="profile-title">森山 陽介<br /><span>Yosuke MORIYAMA</span></h2>
+          <p class="profile-role">
+            電気通信大学 津田研究室<br />
+            博士後期課程 / 日本学術振興会 特別研究員（DC1）
+          </p>
+        </div>
+        <div class="profile-facts">
+          <div>
+            <dt>Research field</dt>
+            <dd>大気科学・衛星リモートセンシング</dd>
+          </div>
+          <div>
+            <dt>Keywords</dt>
+            <dd>PMC / Himawari / Middle atmosphere</dd>
+          </div>
+          <div>
+            <dt>Links</dt>
+            <dd>
+              <a href="https://researchmap.jp/y-moriyama1019ifken/">researchmap ↗</a>
+              <a href="https://www.uec.ac.jp/">UEC ↗</a>
+            </dd>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Yosuke MORIYAMA</p>
+      <a href="/">← 現在のページに戻る</a>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(*) { box-sizing: border-box; }
+  :global(html) { scroll-behavior: smooth; }
+  :global(body) {
+    margin: 0;
+    color: #17231f;
+    background: #f5f6f1;
+    font-family: "M PLUS 1", "Noto Sans JP", sans-serif;
+  }
+  :global(a) { color: inherit; }
+  .site-header {
+    align-items: center;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1180px;
+    padding: 1.6rem 2rem;
+  }
+  .brand { color: #e18f5f; font-size: 1.4rem; font-weight: 900; text-decoration: none; }
+  .brand span { color: #17231f; }
+  nav { display: flex; gap: 1.5rem; }
+  nav a, .language-link { color: #59635e; font-size: .78rem; text-decoration: none; }
+  nav a:hover, .language-link:hover, .text-link:hover, .all-link:hover { color: #e18f5f; }
+  .language-link { border-bottom: 1px solid #c9d0ca; padding-bottom: .25rem; }
+  .hero {
+    align-items: center;
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, .75fr);
+    margin: 0 auto;
+    max-width: 1180px;
+    min-height: 600px;
+    padding: 5rem 2rem 6rem;
+  }
+  .eyebrow { color: #d3784d; font-size: .7rem; font-weight: 700; letter-spacing: .16em; margin: 0 0 1.3rem; }
+  h1, h2, h3, p { margin-top: 0; }
+  h1 { font-size: clamp(2.7rem, 6vw, 5.2rem); letter-spacing: -.08em; line-height: 1.15; margin-bottom: 1.7rem; }
+  h1 em { color: #d3784d; font-style: normal; }
+  .hero-lead { color: #59635e; font-size: 1rem; line-height: 2; max-width: 32rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }
+  .button { border-radius: 999px; display: inline-flex; gap: .8rem; padding: .8rem 1.25rem; text-decoration: none; }
+  .button-primary { background: #17231f; color: #fff; }
+  .button-quiet { border: 1px solid #b9c3bc; color: #59635e; }
+  .hero-visual { aspect-ratio: 1; background: #dfe8df; border-radius: 50%; max-width: 480px; overflow: hidden; position: relative; }
+  .orbit { border: 1px solid rgba(23, 35, 31, .3); border-radius: 50%; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%) rotate(-24deg); }
+  .orbit-one { height: 55%; width: 120%; }
+  .orbit-two { height: 90%; transform: translate(-50%, -50%) rotate(54deg); width: 75%; }
+  .planet { background: #7b9b9a; border-radius: 50%; height: 45%; left: 28%; position: absolute; top: 31%; width: 45%; }
+  .planet::after { background: rgba(235, 239, 216, .35); border-radius: 50%; content: ""; height: 14%; left: 22%; position: absolute; top: 22%; width: 42%; }
+  .planet-label { color: #e8eee1; display: block; font-size: .65rem; letter-spacing: .15em; line-height: 1.7; margin: 37% 0 0 24%; }
+  .satellite { background: #e18f5f; border-radius: .2rem; color: #fff; font-size: .6rem; font-weight: 700; left: 66%; letter-spacing: .1em; padding: .6rem; position: absolute; top: 20%; transform: rotate(12deg); }
+  .satellite small { font-size: .5rem; }
+  .visual-caption { bottom: 1.5rem; color: #63726a; font-size: .55rem; letter-spacing: .13em; line-height: 1.7; position: absolute; right: 1.8rem; text-align: right; }
+  .section-shell { margin: 0 auto; max-width: 1180px; padding: 6rem 2rem; }
+  .section-heading { max-width: 35rem; }
+  .section-heading h2 { font-size: clamp(1.8rem, 3vw, 2.7rem); letter-spacing: -.06em; margin-bottom: .7rem; }
+  .section-heading > p:last-child { color: #6b756f; line-height: 1.8; }
+  .research-section { border-top: 1px solid #d5ddd5; }
+  .research-grid { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); margin-top: 3rem; }
+  .research-card { background: #fff; border-top: 3px solid #e18f5f; min-height: 285px; padding: 1.7rem; position: relative; }
+  .card-number { color: #c9d0ca; font-size: 2rem; font-weight: 700; position: absolute; right: 1.5rem; top: 1rem; }
+  .card-label, .publication-year { color: #d3784d; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .research-card h3 { font-size: 1.2rem; margin: 2.5rem 0 .8rem; }
+  .research-card > p:not(.card-label) { color: #66716b; font-size: .88rem; line-height: 1.9; }
+  .research-card a, .text-link, .all-link { color: #d3784d; font-size: .8rem; font-weight: 700; text-decoration: none; }
+  .research-card a { bottom: 1.5rem; position: absolute; }
+  .news-section { align-items: start; border-top: 1px solid #d5ddd5; display: grid; gap: 5rem; grid-template-columns: .7fr 1.3fr; }
+  .compact-heading h2 { margin: 0; }
+  .news-item { align-items: center; border-bottom: 1px solid #d5ddd5; display: grid; gap: 1.3rem; grid-template-columns: 5rem 1fr 1rem; padding: 1rem 0; }
+  .news-item time { color: #d3784d; font-size: .8rem; font-weight: 700; }
+  .news-item p { font-size: .9rem; margin: 0; }
+  .news-item span { color: #d3784d; }
+  .publication-section { background: #e9eee7; max-width: none; padding-left: max(2rem, calc((100% - 1180px) / 2)); padding-right: max(2rem, calc((100% - 1180px) / 2)); }
+  .publication-content { display: grid; gap: 4rem; grid-template-columns: 1.2fr .8fr; margin-top: 3rem; }
+  .publication-feature { border-left: 3px solid #e18f5f; padding-left: 1.5rem; }
+  .publication-feature h3 { font-size: clamp(1.2rem, 2vw, 1.7rem); line-height: 1.65; max-width: 42rem; }
+  .publication-feature > p:not(.publication-year) { color: #66716b; line-height: 1.8; }
+  .publication-list { list-style: none; margin: 0; padding: 0; }
+  .publication-list li { border-top: 1px solid #c9d4c9; display: grid; gap: 1rem; grid-template-columns: 3rem 1fr; padding: 1rem 0; }
+  .publication-list span { color: #d3784d; font-size: .78rem; font-weight: 700; }
+  .publication-list p { font-size: .86rem; line-height: 1.6; margin: 0; }
+  .all-link { display: inline-block; margin-top: 2.5rem; }
+  .profile-section { align-items: start; display: grid; gap: 5rem; grid-template-columns: .9fr 1.1fr; }
+  .profile-intro h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -.07em; line-height: 1.2; }
+  .profile-intro h2 span { color: #d3784d; font-size: .55em; letter-spacing: 0; }
+  .profile-role { color: #66716b; line-height: 1.9; }
+  .profile-facts { display: grid; gap: 0; }
+  .profile-facts > div { border-top: 1px solid #d5ddd5; display: grid; gap: 1rem; grid-template-columns: 8rem 1fr; padding: 1.2rem 0; }
+  dt { color: #d3784d; font-size: .7rem; font-weight: 700; text-transform: uppercase; }
+  dd { font-size: .9rem; line-height: 1.7; margin: 0; }
+  dd a { display: inline-block; margin-right: 1rem; text-decoration: none; }
+  footer { background: #17231f; color: #e9eee7; display: flex; justify-content: space-between; padding: 2rem max(2rem, calc((100% - 1180px) / 2)); }
+  footer p { font-size: .75rem; letter-spacing: .1em; margin: 0; }
+  footer a { color: #b7c2b9; font-size: .75rem; text-decoration: none; }
+  @media (max-width: 760px) {
+    .site-header { flex-wrap: wrap; padding: 1.2rem 1.25rem; }
+    nav { gap: .8rem; order: 3; overflow: auto; width: 100%; }
+    .hero { display: flex; flex-direction: column; min-height: 0; padding: 4rem 1.25rem; }
+    .hero-copy { width: 100%; }
+    .hero-visual { align-self: center; width: 80vw; }
+    .section-shell { padding: 4rem 1.25rem; }
+    .research-grid, .publication-content, .profile-section, .news-section { grid-template-columns: 1fr; }
+    .news-section, .profile-section { gap: 2.5rem; }
+    .research-card { min-height: 250px; }
+    .publication-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+    footer { align-items: start; flex-direction: column; gap: 1rem; padding: 1.5rem 1.25rem; }
+  }
+</style>
