@@ -1,18 +1,67 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
+import {
+  categoryLabels,
+  latestPublications,
+  paperTypeLabels,
+  presentationTagLabels,
+  type PublicationCategory,
+} from "../data/publications";
+
+const base = import.meta.env.BASE_URL;
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+const publicationCategories: PublicationCategory[] = [
+  "first-authored-papers",
+  "first-authored-presentations",
+];
 ---
 
 <Layout title="Yosuke MORIYAMA">
-
-    <div>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">PROFILE</p>
+          <h1 id="hero-title">森山 陽介<br /><em>Yosuke MORIYAMA</em></h1>
+          <p class="profile-role">
+            電気通信大学 津田研究室<br />
+            博士後期課程 / 日本学術振興会 特別研究員（DC1）
+          </p>
+          <p class="hero-lead">
+            ひまわり8号・9号をはじめとする衛星観測データを用いて、
+            極中間圏雲と地球中層・超高層大気の変動を研究しています。
+          </p>
+          <div class="profile-facts">
+            <div>
+              <dt>Research field</dt>
+              <dd>(極域) 大気科学・衛星リモートセンシング</dd>
+            </div>
+            <div>
+              <dt>Keywords</dt>
+              <dd>PMC / NLC / Himawari / Middle atmosphere / Upper atmosphere</dd>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#research">News & Achievement<span>↓</span></a>
+            <a class="button button-quiet" href="#profile">Research →</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="森山陽介のプロフィール画像">
+          <img
+            src={`${base}073A1948.jpg`}
+            alt="森山陽介のプロフィール画像"
+            width="600"
+            height="600"
+          />
+        </div>
+      </section>
+    <!-- <div>
       日本の静止軌道衛星ひまわり 8 号 / 9 号による極中間圏雲 (Polar Mesospheric
       Clouds: PMC) の観測データを中心とした地球大気観測衛星データを用いて、PMC
       と地球中層・超高層大気変動の関係について研究しています。
-    </div>
+    </div> -->
     <section class="timeline" aria-label="経歴タイムライン">
       <h2>Timeline</h2>
 
@@ -112,232 +161,68 @@ import Layout from "../layouts/Layout.astro";
       </ul>
     </section>
 
-    <div>
-      <h2>実績 / Achievement</h2>
-      <section>
-        <h3>研究論文 / Papers</h3>
-        <ol>
-          <li>
-            Moriyama, Y., T. T. Tsuda, Y. Ando, H. Suzuki, H. Nakagawa, T.
-            Nishiyama, Y.-M. Tanaka, K. T. Murata, and J. Yue, ``Responses of
-            Polar Mesospheric Clouds to Water Vapor Anomalies Caused by the 2022
-            Hunga Tonga–Hunga Ha’apai Eruption,'' Earth Planets Space, vol.77,
-            (1), 162, doi:<a href="https://doi.org/10.1186/s40623-025-02298-3">10.1186/s40623-025-02298-3</a>, 2025.
-            <ul>
-              <li>
-                <a href="https://www.uec.ac.jp/news/newsrelease/2025/20251029_7253.html">電通大プレスリリース / UEC Press Release</a>
-              </li>
-              <li>
-                <a href="https://www.meiji.ac.jp/koho/press/2025/qfki0t00000a12qh.html">明治大プレスリリース / Meiji Univ. Press Release</a>
-              </li>
-              <li>
-                <a href="https://www.tohoku.ac.jp/japanese/2025/10/press20251029-02-cloud.html">東北大プレスリリース / Tohoku Univ. Press Release</a>
-              </li>
-              <li>
-                <a href="https://www.nipr.ac.jp/info2025/20251029.html">極地研プレスリリース / NIPR Press Release</a>
-              </li>
-              <li>
-                <a href="https://www.chikyu.ac.jp/rihn/news/detail/639/">地球研プレスリリース / RIHN Press Release</a>
-              </li>
-              <li>
-                <a href="#EPS_highlight_2025">EPS Highlighted Papers 2025</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            Moriyama, Y., T. T. Tsuda, and Y. Ando, ``Comparison of Polar
-            Mesospheric Cloud Observations by Himawari-8/AHI and
-            Himawari-9/AHI,'' Earth Planets Space, vol.77, (1), 30, doi:<a
-              href="https://doi.org/10.1186/s40623-025-02163-3"
-              >10.1186/s40623-025-02163-3</a
-            >, 2025.
-          </li>
-        </ol>
-      </section>
-      <section>
-        <h3>研究発表 / Presentations</h3>
-        <h4>主著 / First-authored</h4>
-        <ol>
-          <li>
-            Y. Moriyama, T. T. Tsuda, Y. Ando, H. Suzuki, H. Nakagawa, T.
-            Nishiyama, Y.-M. Tanaka, K. T. Murata, J. Yue, ``Himawari/AHI
-            observations of polar mesospheric cloud variations associated with
-            the 2022 Tonga eruption,'' AOGS 2026, Fukuoka, Japan, August 2026.
-            (口頭 / oral)
-          </li>
-          <li>
-            Y. Moriyama, T. T. Tsuda, Y. Ando, H. Suzuki, H. Nakagawa, T.
-            Nishiyama, Y.-M. Tanaka, K. T. Murata, J. Yue, ``Research on polar
-            mesospheric cloud variations associated with the 2022 HTHH eruption
-            based on Himawari/AHI observation,'' JpGU-AGU Joint Meeting 2026,
-            Chiba, Japan, May 2026. (口頭 / oral)
-            <ul>
-            <li>
-              <a href="#ospa_2026">学生優秀発表賞 / OSPA</a>
-            </li>
-            </ul>
-          </li>
-          <li>
-            Y. Moriyama, T. T. Tsuda, Y. Ando, H. Suzuki, H. Nakagawa, T.
-            Nishiyama, Y.-M. Tanaka, K. T. Murata, and J. Yue, ``Research on the
-            impact of the 2022 Tonga Eruption's water vapor anomaly on polar
-            mesospheric cloud activities based on Himawari-8/9 observations,''
-            Society of Geomagnetism and Earth, Planetary and Space Science
-            (SGEPSS) 2025 Fall Meeting, Kobe, Hyogo, Japan, November 2025. (口頭
-            / oral)
-            <ul>
-            <li>
-              <a href="#auroral_medal_2025">オーロラメダル / Auroral medal</a>
-            </li>
-            </ul>
-          </li>
-          <li>
-            Y. Moriyama, T. T. Tsuda, Y. Ando, H. Suzuki, H. Nakagawa, T.
-            Nishiyama, and Y.-M. Tanaka, ``Impact of the HTHH eruption's water
-            vapor on polar mesospheric cloud activities observed by
-            Himawari-8/9,'' The Eighth International Symposium on Arctic
-            Research (ISAR-8), Hachioji, Tokyo, Japan, October 2025. (口頭 /
-            oral)
-          </li>
-          <li>
-            森山陽介, 津田卓雄, 安藤芳晃, 鈴木秀彦, 中川広務, 西山尚典,
-            田中良昌, 村田健史, Jia Yue,
-            ``2022年トンガ噴火水蒸気注入に対する極中間圏雲応答の観測的調査:
-            ひまわり/AHIとAura/MLSの連携解析'', 令和 7 年度中間圏・熱圏・電離圏
-            (MTI) 研究集会, 調布, Sep. 2025. (ポスター / poster)
-          </li>
-          <li>
-            Y. Moriyama, T. T. Tsuda, Y. Ando, H. Suzuki, H. Nakagawa, T.
-            Nishiyama, and Y.-M. Tanaka, ``Research on polar mesospheric cloud
-            response to the water vapor injection by the 2022 Tonga eruption
-            based on Himawari-8/9 observations,'' Japan Geoscience Union (JpGU)
-            Meeting 2025, Chiba, Japan, May 2025. (ポスター / poster)
-          </li>
-          <li>
-            Y. Moriyama, T. T. Tsuda, Y. Ando, and K. T. Murata, ``Polar
-            mesospheric cloud variations from 2015 to 2024 observed by
-            Himawari-8/9,'' Society of Geomagnetism and Earth, Planetary and
-            Space Science (SGEPSS) 2024 Fall Meeting, Tachikawa, Tokyo, Japan,
-            November 2024. (ポスター / poster)
-          </li>
-          <li>
-            森山陽介, 津田卓雄, 安藤芳晃, 村田健史, ``ひまわり 8 号/ 9 号の PMC
-            検出結果の比較と 2015--2024 年の PMC 変動の解析,'' 令和 6
-            年度中間圏・熱圏・電離圏 (MTI) 研究集会, 北九州, September 2024.
-            (ポスター / poster)
-          </li>
-          <li>
-            Y. Moriyama, T. T. Tsuda, Y. Ando, and K. T. Murata, ``A comparison
-            of polar mesospheric cloud observations by Himawari-8/AHI and
-            Himawari-9/AHI,'' Japan Geoscience Union (JpGU) Meeting 2024, Chiba,
-            Japan, May 2024. (ポスター / poster)
-          </li>
-        </ol>
-        <h4>共著 / Co-authored</h4>
-        <ol>
-          <li>
-            K. Sato, T. T. Tsuda, J. Hu, <u>Y. Moriyama</u>, Y. Sonoyama, N.
-            Wada, T. Aoki, N. Saito, S. Nozawa, T. Kawabata, T. D. Kawahara, T.
-            Takahashi, ``Development and principal experiment of a time-delayed
-            multi-beam method for an upgrade of the Tromsø Na lidar,'' JpGU-AGU
-            Joint Meeting 2026, Chiba, Japan, May 2026. (口頭 / oral)
-          </li>
-          <li>
-			  佐藤洸太, 津田卓雄, J. Hu, <u>森山陽介</u>, 園山雄基, 和田奈津希,
-			  青木猛, 斎藤徳人, 野澤悟徳, 川端哲也, 川原琢也, 髙橋透, ``トロムソ
-			  Na
-			  ライダーの改良に向けた時間差マルチビーム観測システムの開発と試験観測,''
-			  EISCAT 研究集会, March 2026. (口頭 / oral)
-			</li>
-			<li>
-				T. T. Tsuda, Y. Ando, <u>Y. Moriyama</u>, J. Yue, H. Suzuki, H.
-				Nakagawa, T. Nishiyama, Y.-M. Tanaka, and K. T. Murata, ``Polar
-				mesospheric cloud observations by the Japanese
-				geostationary-Earth-orbit meteorological satellites Himawari-8/9,''
-				American Geophysical Union Annual Meeting 2025 (AGU25), New Orland,
-				USA, December 2025. (ポスター / poster)
-			</li>
-			<li>
-				K. Sato, T. T. Tsuda, J. Hu, <u>Y. Moriyama</u>, Y. Sonoyama, N.
-				Wada, T. Aoki, N. Saito, S. Nozawa, T. Kawa-bata, T. D. Kawahara,
-				and T. Takahashi, ``Development of the time-delayed multi-beam
-				observation method applied to the Tromsø Na lidar,'' Society of
-				Geomagnetism and Earth, Planetary and Space Science (SGEPSS) 2025
-				Fall Meeting, Kobe, Hyogo, Japan, November 2025. (口頭 / oral)
-        <!-- <ul>
-          <li>
-          <a href="https://www.uec.ac.jp/news/prize/2026/20260612_7758.html"
-            >オーロラメダル / Auroral medal, 電通大プレスリリース / UEC Press Release</a
-          >
-          </li>
-          </ul> -->
-			</li>
-			<li>
-            T. T. Tsuda, Y. Ando, H. Suzuki, H. Nakagawa, T. Nishiyama, Y.
-            Tanaka, <u>Y. Moriyama</u>, T. Shibuya, M. Sakai, and M. Tanaka,
-            ``Polar mesospheric cloud observations by the Japanese geostationary
-            satellites Himawari-8/9,'' Japan Geoscience Union (JpGU) Meeting
-            2025, Chiba, Japan, May 2025. (口頭 / oral, 招待講演 / invited talk)
-          </li>
-        </ol>
-      </section>
-      <!-- <section>
-        <h3>受賞 / Awards</h3>
-        <ol>
-          <li id="ospa_2026">
-            <b>2026.07</b> Outstanding Student Presentation Awards, Japan Geoscience
-            Union
-            <ul>
-              <li>
-                <a href="https://www.uec.ac.jp/news/prize/2026/20260819_7883.html"
-                  >電通大プレスリリース / UEC Press Release</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <b>2026.03</b> 令和7年度学生表彰 (研究活動で顕著な成果 ＜個人＞), 電気通信大学
-          </li>
-          <li>
-            <b>2026.03</b> 修士論文発表会 優秀発表賞, 電気通信大学 大学院情報理工学研究科
-            情報・ネットワーク工学専攻 電子情報学プログラム
-          </li>
-          <li id="EPS_highlight_2025">
-            <b>2026.03</b> EPS Highlighted Papers 2025, Responses of polar mesospheric
-            clouds to water vapor anomalies caused by the 2022 Hunga Tonga-Hunga Ha'apai
-            eruption, Y. Moriyama, T. T. Tsuda, Y. Ando, H. Suzuki, H. Nakagawa, T.
-            Nishiyama, Y.-M. Tanaka, K. T. Murata, J. Yue
-            <ul>
-              <li>
-                <a href="https://link.springer.com/journal/40623/updates/27793928"
-                  >EPS Highlighted Papers</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <b>2026.03</b> 令和7年度 目黒会賞, 一般社団法人 目黒会
-          </li>
-          <li id="auroral_medal_2025">
-            <b>2025.11</b> 最優秀発表賞（オーロラメダル）, 「2022年トンガ噴火の水蒸気異常が極中間圏雲活動に与える影響に関するひまわり8号/9号の観測に基づく研究」（R005-07）,
-            地球電磁気・地球惑星圏学会
-            <ul>
-              <li>
-                <a href="https://www.uec.ac.jp/news/prize/2026/20260612_7758.html"
-                  >電通大プレスリリース / UEC Press Release</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <b>2024.03</b> 卒業研究発表会 優秀発表賞, 電気通信大学 情報理工学域 II
-            類 (融合系) 電子情報学プログラム
-          </li>
-          <li>
-            <b>2024.03</b> 令和5年度 目黒会賞, 一般社団法人 目黒会
-          </li>
-        </ol>
-      </section> -->
-    </div>
-
+    <section class="pubs-section" aria-labelledby="publication-preview-title">
+      <div class="section-heading">
+        <p class="eyebrow">PUBLICATIONS & PRESENTATIONS</p>
+        <h2 id="publication-preview-title">研究業績 / Achievement</h2>
+        <p class="pubs-lead">最新3件
+          <a class="pubs-nav" href=`${base}pubs/`>すべての業績を見る →</a>
+        </p>
+      </div>
+      <div class="pubs-list">
+        {publicationCategories.map((category) => (
+          <section class="pubs-section">
+            <h3>{categoryLabels[category]}</h3>
+            {latestPublications(category).length > 0 ? (
+              <ol>
+                {latestPublications(category).map((item) => (
+                  <li class="pub-item">
+                    <h3>{item.title}</h3>
+                    <p>{item.citation}</p>
+                    {item.doi && (
+                      <a href={`https://doi.org/${item.doi}`} target="_blank" rel="noopener noreferrer">
+                        DOI: {item.doi} ↗
+                      </a>
+                    )}
+                    <div class="pub-meta">
+                      <span>{item.venue}</span>
+                      <time datetime={item.date}>
+                        {item.date.slice(0, 4)}
+                      </time>
+                    </div>
+                    <p class="pub-tags" aria-label="業績種別">
+                      {item.paperType && <span>{paperTypeLabels[item.paperType]}</span>}
+                      {item.presentationTags?.map((tag) => <span>{presentationTagLabels[tag]}</span>)}
+                    </p>
+                    {item.remarks && (
+                      <ul class="pub-remarks" aria-label="備考">
+                        {item.remarks.map((remark) => (
+                          <li>
+                            {remark.url ? (
+                              <a href={remark.url} target={remark.url.startsWith("#") ? undefined : "_blank"} rel={remark.url.startsWith("#") ? undefined : "noopener noreferrer"}>
+                                {remark.label}
+                              </a>
+                            ) : (
+                              remark.label
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <p class="no-publications">T.B.D</p>
+            )}
+          </section>
+        ))}
+      </div>
+    </section>
 </Layout>
+
+<style>
+  .profile-role { color: var(--foreground); line-height: 1.9; }
+  .profile-facts { display: grid; gap: 0; }
+  .profile-facts > div { border-top: 1px solid #d5ddd5; display: grid; gap: 1rem; grid-template-columns: 8rem 1fr; padding: 1.2rem 0; }
+</style>

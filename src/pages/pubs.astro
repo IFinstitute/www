@@ -1,0 +1,83 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import {
+  categoryLabels,
+  paperTypeLabels,
+  presentationTagLabels,
+  publications,
+  sortPublications,
+  type PublicationCategory,
+} from "../data/publications";
+
+const categories: PublicationCategory[] = [
+  "first-authored-papers",
+  "co-authored-papers",
+  "first-authored-presentations",
+  "co-authored-presentations",
+];
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Publications | Yosuke MORIYAMA">
+  <div class="pubs-page">
+    <p class="eyebrow">PUBLICATIONS & PRESENTATIONS</p>
+    <h1>研究業績</h1>
+    <p class="pubs-lead">
+      主著・共著の論文および学会発表を、カテゴリ別に掲載しています。
+    </p>
+
+    <nav class="pubs-nav" aria-label="業績カテゴリ">
+      {categories.map((category) => <a href={`#${category}`}>{categoryLabels[category]}</a>)}
+    </nav>
+
+    {categories.map((category) => (
+      <section class="pubs-section" id={category}>
+        <h2>{categoryLabels[category]}</h2>
+        <ol class="pubs-list">
+          {sortPublications(publications.filter((item) => item.category === category)).map((item) => (
+            <li class="pub-item">
+              <h3>{item.title}</h3>
+              <p>{item.citation}</p>
+              {item.doi && (
+                <a href={`https://doi.org/${item.doi}`} target="_blank" rel="noopener noreferrer">
+                  DOI: {item.doi} ↗
+                </a>
+              )}
+              <div class="pub-meta">
+                <span>{item.venue}</span>
+                <time datetime={item.date}>
+                  {item.date.slice(0, 4)}
+                </time>
+              </div>
+              <div class="pub-tags" aria-label="業績種別">
+                {item.paperType && <span>{paperTypeLabels[item.paperType]}</span>}
+                {item.presentationTags?.map((tag) => <span>{presentationTagLabels[tag]}</span>)}
+              </div>
+              {item.remarks && (
+                <ul class="pub-remarks" aria-label="備考">
+                  {item.remarks.map((remark) => (
+                    <li>
+                      {remark.url ? (
+                        <a href={remark.url} target={remark.url.startsWith("#") ? undefined : "_blank"} rel={remark.url.startsWith("#") ? undefined : "noopener noreferrer"}>
+                          {remark.label}
+                        </a>
+                      ) : (
+                        remark.label
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
+    <p><a href={`${base}`}>← トップページへ戻る</a></p>
+  </div>
+</Layout>
+
+<style>
+
+</style>
